@@ -17,7 +17,58 @@
     </div>
     
     <div class="container">
-        <!-- Your existing game content here -->
+        <div class="content">
+            <!-- Loading Screen -->
+            <div class="loading-screen" id="loadingScreen">
+                <div class="loader"></div>
+                <h2>Loading Zen Hitori...</h2>
+                <p>Preparing your puzzle experience</p>
+            </div>
+
+            <!-- Title Screen -->
+            <div class="title-screen" id="titleScreen">
+                <div class="japanese-title">
+                    <div class="main-title">ZEN</div>
+                    <div class="sub-title">HITORI</div>
+                    <div class="title-line"></div>
+                    <div class="developer-name">BY BIKRAM</div>
+                </div>
+                <button class="menu-btn zen-btn" onclick="showMenuWithTransition()">🎋 ENTER</button>
+            </div>
+
+            <!-- Main Menu -->
+            <div class="menu" id="mainMenu">
+                <h2>Main Menu</h2>
+                <div class="difficulty-select">
+                    <button class="menu-btn difficulty-btn" onclick="startGame('easy')">🍃 Easy</button>
+                    <button class="menu-btn difficulty-btn" onclick="startGame('medium')">🌿 Medium</button>
+                    <button class="menu-btn difficulty-btn" onclick="startGame('hard')">🎋 Hard</button>
+                </div>
+                <button class="menu-btn" onclick="showHowToPlay()">📚 How to Play</button>
+                <button class="menu-btn" onclick="showStatistics()">📊 Statistics</button>
+                <button class="menu-btn" onclick="showAboutGame()">🎌 About</button>
+            </div>
+
+            <!-- Game Screen -->
+            <div class="game-screen" id="gameScreen">
+                <div class="game-header">
+                    <div class="game-info">
+                        <div class="timer" id="timer">00:00</div>
+                        <div class="hints-left" id="hintsLeft">Hints: 3</div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="control-btn" onclick="game.togglePause()">⏸️ Pause</button>
+                        <button class="control-btn" onclick="game.getHint()">💡 Hint</button>
+                        <button class="control-btn" onclick="game.restart()">🔄 Restart</button>
+                        <button class="control-btn" onclick="showMenuBack()">🏠 Menu</button>
+                    </div>
+                </div>
+                <div class="grid" id="gameGrid"></div>
+                <button class="submit-btn" onclick="game.checkSolution()">✅ Submit Solution</button>
+            </div>
+            
+            <!-- Other screens here -->
+        </div>
     </div>
 
     <!-- Scripts -->
