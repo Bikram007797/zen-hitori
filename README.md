@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Zen Hitori
 
 A beautiful, minimalist implementation of the classic Hitori puzzle game.
@@ -50,3 +51,7 @@ zen-hitori/
 ## License
 
 MIT License - feel free to use and modify!
+=======
+# zen-hitori
+A beautiful, mobile-friendly Hitori puzzle game with a Zen theme.
+>>>>>>> bd341e547f8ceb0ecba8340088235323a58912c8
