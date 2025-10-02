@@ -1,0 +1,26 @@
+{
+  "name": "zen-hitori",
+  "version": "1.0.0",
+  "description": "A beautiful, mobile-friendly Hitori puzzle game with a zen theme",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bikram007797/zen-hitori.git"
+  },
+  "keywords": [
+    "hitori",
+    "puzzle",
+    "game",
+    "javascript"
+  ],
+  "author": "Bikram007797",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bikram007797/zen-hitori/issues"
+  },
+  "homepage": "https://Bikram007797.github.io/zen-hitori"
+}
