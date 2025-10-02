@@ -1,32 +1,53 @@
 class Profile {
     constructor() {
-        this.data = this.load();
+        this.scores = this.loadScores();
     }
 
-    load() {
-        const defaultProfile = {
-            name: 'Player',
-            gamesPlayed: 0,
-            gamesWon: 0,
-            currentStreak: 0,
-            bestStreak: 0,
-            bestTimes: {
-                easy: Infinity,
-                medium: Infinity,
-                hard: Infinity
-            },
-            preferences: {
-                sound: true,
-                vibration: true,
-                theme: 'classic'
-            }
+    loadScores() {
+        const savedScores = localStorage.getItem('hitoriScores');
+        return savedScores ? JSON.parse(savedScores) : {
+            easy: [],
+            medium: [],
+            hard: []
         };
-        
-        const saved = localStorage.getItem('zen_hitori_profile');
-        return saved ? JSON.parse(saved) : defaultProfile;
     }
 
-    save() {
-        localStorage.setItem('zen_hitori_profile', JSON.stringify(this.data));
+    saveScores() {
+        localStorage.setItem('hitoriScores', JSON.stringify(this.scores));
+    }
+
+    addScore(score) {
+        if (!this.scores[score.difficulty]) {
+            this.scores[score.difficulty] = [];
+        }
+        
+        this.scores[score.difficulty].push(score.time);
+        this.scores[score.difficulty].sort((a, b) => a - b);
+        
+        // Keep only top 10 scores
+        if (this.scores[score.difficulty].length > 10) {
+            this.scores[score.difficulty] = this.scores[score.difficulty].slice(0, 10);
+        }
+        
+        this.saveScores();
+    }
+
+    getBestScore(difficulty) {
+        if (!this.scores[difficulty] || this.scores[difficulty].length === 0) {
+            return null;
+        }
+        return this.scores[difficulty][0];
+    }
+
+    getAverageScore(difficulty) {
+        if (!this.scores[difficulty] || this.scores[difficulty].length === 0) {
+            return null;
+        }
+        const sum = this.scores[difficulty].reduce((a, b) => a + b, 0);
+        return Math.floor(sum / this.scores[difficulty].length);
+    }
+
+    getGamesPlayed(difficulty) {
+        return this.scores[difficulty] ? this.scores[difficulty].length : 0;
     }
 }
