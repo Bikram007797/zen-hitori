@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --theme-primary: #8B6F47;
+    --theme-secondary: #A0845C;
+    --theme-background: #DEB887;
+    --theme-text: #333333;
+    --theme-cell-bg: #ffffff;
+    --theme-cell-shaded: #2c3e50;
+    --theme-success: #4caf50;
+    --theme-error: #f44336;
+}
+
+[data-theme="dark"] {
+    --theme-primary: #A0845C;
+    --theme-secondary: #8B6F47;
+    --theme-background: #2c3e50;
+    --theme-text: #ffffff;
+    --theme-cell-bg: #34495e;
+    --theme-cell-shaded: #1a252f;
+    --theme-success: #66bb6a;
+    --theme-error: #ef5350;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--theme-background) 0%, var(--theme-secondary) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-text);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
